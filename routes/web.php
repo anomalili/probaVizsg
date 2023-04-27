@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SzakdogaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/nemAdmin', function () {
+    return view('nemAdmin');
+});
+
+
+
+
+
+Route::get('/szakdogak',[SzakdogaController::class, 'index']);
+Route::post('/szakdogak',[SzakdogaController::class, 'tarol']);
+Route::put('/szakdogak/{id}' ,[SzakdogaController::class, 'modositas']);
+Route::delete('/szakdogak/{id}',[SzakdogaController::class, 'torles']);
+
